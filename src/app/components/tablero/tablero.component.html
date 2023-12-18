@@ -1,0 +1,18 @@
+<section>
+  <p class="titulo">Tic Tac Toe</p>
+  <div class="tablero">
+    <div
+      class="casilla"
+      *ngFor="let e of tablero; let indice = index"
+      (click)="jugarTurno(indice, $event.target)"
+    >
+      <span>{{ e }}</span>
+    </div>
+  </div>
+  <div class="turnos">
+    <p class="turno" [ngClass]="turno? 'turno2' : 'turno'">❌</p>
+    <p class="turno" [ngClass]="turno ? 'turno' : 'turno2'">⚪</p>
+  </div>
+  <app-resultado resultado="{{resultado}}" />
+  <button class="btn-reiniciar" (click)="reiniciarJuego()">Restart</button>
+</section>
